@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="login-page signup">
+
+    <form method="POST" id="user_form">
+        <h2>Make An Account</h2>
+        {{ form.hidden_tag() }}
+
+        {% for field in form if field.widget.input_type != 'hidden' %}
+        <p>
+            {% for error in field.errors %}
+            <span class="text-danger">{{ error }}</span>
+            {% endfor %}
+
+            {{ field }}
+        </p>
+        {% endfor %}
+
+        <button class="user-button">Sign Up</button>
+        <div>Have an Account? <p><a href="/login">Log-in Here</a></p>
+        </div>
+    </form>
+
+</div>
+{% endblock %}

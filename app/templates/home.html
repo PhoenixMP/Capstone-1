@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div id="home-page">
+    <div class="website-intro">
+        <h1>Welcome to Melodic!</h1>
+        {% if not g.user%}
+        <div class="sign-up-prompt">Sign-up/Log-in to save your recordings and favorite tracks</div>
+        {% endif %}
+
+    </div>
+    <div style="display: flex;">
+        <div class="website-views">
+            <h2>Make Some Music</h2>
+            <div class="record-preview"><a href="/record"> <img src="/static/images/recording-preview.PNG" alt="">
+                    <div class="descriptions">Use your keyboard as an instrument to play and record melodies!</div>
+                </a>
+            </div>
+            <div class="jam-preview"><a href="/search-tracks"> <img src="/static/images/jam-preview.PNG" alt="">
+                    <div class="descriptions">Use your keyboard as an instrument to jam along to selected tracks!</div>
+                </a>
+
+            </div>
+        </div>
+
+        <div class="user-melodies">
+            <h2 id="melody-header">Listen to Shared Melodies</h2>
+            <div class='melody-card-container'>
+                {% for melody in melodies %}
+
+                <div class="melody-card" style="border-style: solid">
+
+                    <div class="melody-info-container">
+
+                        <div class="melody-name-label">
+
+                            Melody Name:
+                            <p class="melody-name">
+                                {{melody.name}}
+                            </p>
+                        </div>
+                        <p class="melody-user">User: {{melody.users.username}}</p>
+                        <p class="melody-date">Recorded: {{melody.timestamp}}</p>
+
+
+                        {% if melody.user_id == g.user.id or g.user.username=="phoenix" %}
+                        {% if melody.visibility == True%}
+                        <form class='melody-visibility-form' action="/edit-melody/{{melody.id}}" method="POST">
+
+
+                            <label class="checkbox-container" for="melody-visibility">Melody Visible?
+                                <input type="checkbox" onChange="this.form.submit()" checked="true"
+                                    id="melody-visibility" name="melody-visibility" value="True">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <p class="melody-check-help"><i> (Uncheck to make
+                                    private)</p></i>
+                            </p>
+                        </form>
+
+                        <form class="delete-melody-form" action="/delete-melody/{{melody.id}}" method="POST">
+                            <button class="delete-melody melody-buttons" title="Delete Melody"> <img
+                                    src="/static/images/delete-button.png">
+                            </button>
+                        </form>
+                        {% endif %}
+                        {% endif %}
+                    </div>
+
+
+
+                    <div class="play-melody-container">
+
+                        <button class="play-melody melody-buttons" title="Play Melody"><img
+                                src="/static/images/play-button.png"></button>
+                        <div class="music-notes" style="display:none">{{melody.music_notes}}</div>
+                        <div class="play-melody-label">Play</div>
+
+
+                    </div>
+
+                </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/static/playback.js"></script>
+
+{% endblock %}

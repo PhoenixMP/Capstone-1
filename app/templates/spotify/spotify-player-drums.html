@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div id="drum-jam-page">
+    <a id='spotify-login' href="https://accounts.spotify.com/en/status" target="_blank">Login to Spotify for Full
+        Song</a>
+    <div>
+
+        <div class="music-player">
+            <iframe style="border-radius:12px"
+                src="https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO1Kj733?utm_source=generator" width="352"
+                height="352" frameBorder="0" allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
+            <p><button class="go-back"><a href="/search-tracks">Search For a Song</a></button>
+            </p>
+
+        </div>
+        <div id="jam-container">
+            <div id="piano-jam">
+                <div id="jam-cue">(Click in browser window to jam along)</div>
+                <ul>
+                    <li id='f' class="jam-key white">A</li>
+                    <li id='fs' class="jam-key black">W</li>
+                    <li id='g' class="jam-key white">S</li>
+                    <li id='gs' class="jam-key black">E</li>
+                    <li id='a' class="jam-key white">D</li>
+                    <li id='bb' class="jam-key black">R</li>
+                    <li id='b' class="jam-key white">F</li>
+                    <li id='c' class="jam-key white">G</li>
+                    <li id='cs' class="jam-key black">Y</li>
+                    <li id='d' class="jam-key white">H</li>
+                    <li id='eb' class="jam-key black">U</li>
+                    <li id='e' class="jam-key white">J</li>
+
+                </ul>
+            </div>
+
+            <div id='jam-view-keyboard' class='view-keyboard-div'>
+                <img title="View Keyboard Map" id="view-keyboard" src="/static/images/view-keyboard.png" alt="">
+            </div>
+            <div id="jam-keyboard" class='keyboard-div'>
+                <img id="keyboard" src="/static/images/keyboard.png">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+<script src="/static/jam.js"></script>
+
+{% endblock %}

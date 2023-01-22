@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melodic</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="/static/images/melodic-icon.png">
+    <link rel="stylesheet" href="/static/stylesheets/style.css">
+
+</head>
+
+<body>
+
+    <li class="navbar">
+        <ul id="website-icon">
+            <a href="/">
+                <img width="40px" height="40px" src="/static/images/melodic-icon.png">
+                <span>Melodic</span>
+            </a>
+        </ul>
+
+        <ul class="nav"><a href="/record">Record Melody</a></ul>
+        <ul class="nav"><a href="/search-tracks">Jam</a></ul>
+        {% if not g.user %}
+        <ul class="nav"><a href="/login">Log in</a></ul>
+        <ul class="nav"><a href="/signup">Sign up</a></ul>
+
+        {% else %}
+        <ul class="nav"><a href="/profile/{{g.user.id}}">{{g.user.username}}</a></ul>
+        <ul class="nav"><a href="/logout">Log out</a></ul>
+        {% endif %}
+    </li>
+
+
+
+
+    <div class="flash">
+        {% for msg in get_flashed_messages() %}
+        <div>{{ msg }}</div>
+        {% endfor %}
+    </div>
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+
+</html>

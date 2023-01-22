@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="search-tracks-page">
+
+    <div class="search-songs">
+        <div class="page-intro">
+            <h1>Search Tracks:</h1>
+            {% if not g.user%}
+            <div class="sign-up-prompt">Sign-up/Log-in to save your favorite tracks</div>
+            {% endif %}
+        </div>
+
+        <form class="search by-name" action="/search-tracks/search" method="POST">
+            {{ form_search.hidden_tag() }}
+
+            {% for field in form_search
+            if field.widget.input_type != 'hidden' %}
+
+            <span>
+                {{ field.label }}:
+                {{ field }}
+
+                {% for error in field.errors %}
+                {{ error }}
+                {% endfor %}
+            </span>
+
+            {% endfor %}
+            <button>Search</button>
+        </form>
+
+
+
+        <form class="search by-genre" action="/search-tracks/genre" method="POST">
+            {{ form_genre.hidden_tag() }}
+            {% for field in form_genre
+            if field.widget.input_type != 'hidden' %}
+            <span>
+                {{ field.label }}
+                {{ field }}
+
+                {% for error in field.errors %}
+                {{ error }}
+                {% endfor %}
+            </span>
+            {% endfor %}
+            <button>Search</button>
+        </form>
+
+        <button id='drums'><a href="/jam/drums">Play Drum Tracks</a></button>
+    </div>
+
+
+
+    <div class="song-recommendations-header">
+        {% if recommendation %}
+
+        <h2>Tracks to Get Started:</h2>
+        {% else %}
+        <h2>Search Results:</h2>
+        {% endif %}
+    </div>
+    <div class="card-container">
+        {% if tracks!=None %}
+        {% for track in tracks %}
+
+        <div class="card">
+            {% if g.user %}
+            {% if track['track_id'] in favorites %}
+
+            <i id="{{track['track_id']}}" class="fa fa-heart" style="font-size:36px;color:red"></i>
+
+            {% else %}
+
+            <i id="{{track['track_id']}}" class="fa fa-heart-o" style="font-size:36px;color:red"></i>
+
+            {% endif %}
+            {% endif %}
+            <a href="/jam/{{track['track_id']}}"
+                alt="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcnVvH2T5J45c9Bp3zm4R7ZwLmBBwFCTbo3w&usqp=CAU"><img
+                    src={{track['album_image']}}>
+                <p class="track-name">
+                    {{track['track_name']}}
+                </p>
+                <p class="track-artist">
+                    by {{track['artist_name']}}
+                </p>
+            </a>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+<script src="/static/favorites.js"></script>
+
+
+{% endblock %}

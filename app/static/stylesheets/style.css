@@ -1,0 +1,1258 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+caption {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+
+@font-face {
+    font-family: "Merienda";
+    src: url('/static/stylesheets/fonts/Merienda-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Raleway";
+    src: url('/static/stylesheets/fonts/Raleway-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "ElMessiri";
+    src: url('/static/stylesheets/fonts/ElMessiri-Regular.ttf') format('truetype');
+}
+
+a {
+    text-decoration: none;
+    color: white
+}
+
+button:hover,
+.fa:hover,
+.key,
+.jam-key {
+    cursor: pointer;
+}
+
+body {
+
+    background-color: black;
+    font-family: "Raleway";
+
+
+
+}
+
+.flash {
+
+    padding-top: 70px;
+    background-color: rgba(222, 49, 5, 0.666);
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    width: 100%;
+
+}
+
+
+/************************************************************
+home*/
+
+#home-page {
+
+    color: white;
+    background-image: url('/static/images/home-bkg.jpg');
+    background-position: cover;
+    background-repeat: no-repeat;
+    background-size: 100vw;
+}
+
+#home-page h1 {
+    margin: 0px 0 50px 50px;
+    padding-top: 50px;
+    font-size: 50px;
+    font-family: "ElMessiri";
+}
+
+#home-page h2 {
+    padding: 0 0 0 60px;
+    font-size: 30px;
+    color: rgb(213, 203, 203);
+    font-family: "ElMessiri";
+
+
+}
+
+.sign-up-prompt {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 70px;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.website-views img {
+
+    width: 600px;
+    height: 300px;
+    border-radius: 15px;
+    position: relative;
+}
+
+
+.website-views {
+    flex: 1;
+
+}
+
+.website-views h2 {
+    background-image: linear-gradient(to right, rgba(101, 19, 104, 0.769), rgba(41, 33, 36, 0.822));
+    color: rgb(218, 205, 205);
+}
+
+
+.jam-preview,
+.record-preview {
+    margin: 40px;
+    border-radius: 15px;
+    width: 600px;
+    position: relative;
+    text-align: center;
+}
+
+.jam-preview .descriptions,
+.record-preview .descriptions {
+    display: none;
+}
+
+.jam-preview:hover,
+.record-preview:hover {
+    filter: brightness(70%);
+}
+
+.jam-preview:hover .descriptions,
+.record-preview:hover .descriptions {
+    display: block;
+    position: absolute;
+    top: 30%;
+    left: 0;
+    width: 600px;
+    padding: 50px 0 50px 0;
+    background-color: rgba(246, 187, 127, 0.927);
+    color: #000;
+    text-align: center;
+    font-size: 20px;
+
+
+}
+
+.user-melodies {
+    flex: 1;
+}
+
+.user-melodies h2 {
+    background-image: linear-gradient(to right, rgba(41, 33, 36, 0.822), rgba(101, 19, 104, 0.769));
+    color: rgb(217, 211, 211);
+}
+
+
+
+#home-page .melody-card {
+    padding: 30px 15px 80px 15px;
+    margin: 40px
+}
+
+.melody-user {
+    line-height: 60px;
+    font-size: 20px;
+}
+
+
+/************************************************************
+login/sign-up */
+
+.login-page {
+    color: white;
+    background-image: url('/static/images/home-bkg.jpg');
+    background-position: cover;
+    background-repeat: no-repeat;
+    background-size: 100vw;
+    height: 100vh;
+}
+
+.login-page h2 {
+
+    background-color: transparent;
+    font-family: "Merienda";
+
+    margin: 10px;
+    font-size: 20px;
+}
+
+.login-page form {
+    display: block;
+    float: right;
+    padding: 10px;
+    right: 0;
+    width: 300px;
+    background-image: linear-gradient(black, rgba(255, 255, 255, 0.568));
+    height: 100vh;
+}
+
+.login-page input {
+    padding-right: 30px;
+    background-color: rgb(190, 184, 184);
+    color: white;
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+
+.login-page button {
+    display: inline-block;
+    margin-left: 120px;
+    margin-bottom: 20px;
+}
+
+.signup button {
+    display: inline-block;
+    margin-left: 100px;
+    margin-bottom: 20px;
+    width: 100px;
+
+}
+
+.login-page a {
+    text-decoration: underline;
+    color: rgb(81, 148, 230)
+}
+
+
+
+
+
+/************************************************************
+User-profile */
+
+#edit-profile-page {
+    background-image: url("/static/images/headphones.jpg");
+    background-position: cover;
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    padding-bottom: 100vh;
+    text-align: center;
+    color: white;
+}
+
+#edit-profile-page h2 {
+    font-size: 25px;
+    margin-top: 0;
+    font-family: "ElMessiri";
+}
+
+#edit-profile-page form {
+    position: absolute;
+    height: 100%;
+    width: 400px;
+    top: 70px;
+    margin-left: calc((100vw /2) - (200px));
+    background-image: linear-gradient(rgb(0, 0, 0), rgba(255, 0, 0, 0));
+    font-size: 30px;
+    line-height: 60px;
+    padding: 20px 20px 20px 20px;
+
+}
+
+#edit-profile-page #username {
+    height: 30px;
+    width: 200px;
+
+}
+
+#edit-profile-page #password {
+    height: 30px;
+    width: 200px;
+
+}
+
+#edit-profile-page label {
+    margin-left: 40px;
+}
+
+#edit-profile-page button {
+    background-color: rgb(133, 65, 133);
+    width: 150px;
+
+}
+
+
+#user-profile-page {
+
+    background-image: url("/static/images/headphones.jpg");
+    background-position: cover;
+    background-repeat: no-repeat;
+    background-size: 100vw;
+    padding-bottom: 200px;
+}
+
+#user-profile-page h1 {
+    font-size: 40px;
+    margin: 0px 0 50px 50px;
+    padding-top: 50px;
+    font-family: "ElMessiri";
+}
+
+#user-profile-page h2 {
+    background-image: linear-gradient(to right, rgba(101, 19, 104, 0.769), rgba(12, 72, 23, 0));
+    color: rgb(186, 175, 175);
+    font-size: 25px;
+    padding: 0 0 0 60px;
+    padding-left: 90px;
+    font-family: "ElMessiri";
+
+}
+
+.user-profile {
+    color: white;
+    font-size: 50px;
+    margin: 0 30px 0 30px;
+}
+
+.edit-profile {
+
+    padding: 5px;
+    color: white;
+    font-size: 15px;
+    background: rgb(0, 0, 0);
+    border-radius: 20px;
+}
+
+.edit-profile:hover {
+    background-color: rgb(102, 110, 111);
+}
+
+.melody-card {
+    width: 500px;
+    height: 200px;
+    padding: 20px 10px 20px 20px;
+    margin-top: 30px;
+    margin-left: 150px;
+    background-color: rgba(42, 10, 65, 0.708);
+    border-radius: 15px;
+    color: white;
+    display: flex;
+}
+
+.melody-info-container {
+    display: inline-block;
+    width: 260px;
+}
+
+.melody-name-label {
+    font-size: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+.melody-name {
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.769), rgba(12, 72, 23, 0));
+    text-overflow: ellipsis " [..]";
+}
+
+.melody-date {
+    font-size: 15px;
+    line-height: 50px;
+}
+
+.melody-check-help {
+    font-size: 15px;
+}
+
+.melody-visibility-form {
+    font-size: 20px
+}
+
+
+
+
+.checkbox-container input {
+
+    cursor: pointer;
+    height: 18px;
+    width: 18px;
+
+}
+
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+
+.checkbox-container:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+
+.checkbox-container input:checked~.checkmark {
+    background-color: #2196F3;
+}
+
+
+
+
+.delete-melody-form {
+    margin-top: 20px;
+}
+
+.play-melody-container {
+
+    height: 210px;
+    width: 210px;
+    border-radius: 50%;
+    background-image: url("/static/images/melody-record.jpg");
+    background-size: 105%;
+    background-position: center;
+    display: inline-block;
+}
+
+.melody-buttons {
+    background: none;
+    border: none;
+}
+
+.play-melody img {
+    height: 77px;
+    filter: invert(100%);
+}
+
+.play-melody img:hover {
+    filter: invert(20%);
+}
+
+.delete-melody img {
+    height: 30px;
+    filter: invert(100%);
+}
+
+.delete-melody img:hover {
+    filter: invert(50%);
+}
+
+.play-melody {
+    margin: 64px 0 0 61px;
+}
+
+.play-melody-label {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+
+
+
+.card.favorites {
+    width: 250px;
+    height: 250px;
+    padding-bottom: 75px;
+    margin-left: 80px;
+    background-image: linear-gradient(rgba(60, 6, 62, 0.769), rgb(0, 0, 0));
+}
+
+.card.favorites img {
+    width: 250px;
+    height: 250px;
+}
+
+/************************************************************
+save-melody*/
+
+
+#save-melody-page {
+
+    color: white;
+
+
+
+}
+
+#save-melody-page form {
+
+    position: absolute;
+    height: 25%;
+    width: 600px;
+    top: 70px;
+    margin-left: calc((100vw /2) - (600px /2));
+    background-image: linear-gradient(rgba(85, 26, 103, 0.769), rgba(165, 116, 155, 0));
+    font-size: 30px;
+    line-height: 60px;
+    padding: 50px 20px 20px 20px;
+
+}
+
+#save-melody-page #name {
+
+    height: 30px;
+    width: 200px;
+}
+
+#save-melody-page #visibility {
+    height: 30px;
+    width: 30px;
+}
+
+#save-melody-page label {
+    margin-left: 40px;
+}
+
+#save-melody-page button {
+    background-color: rgb(49, 21, 43);
+    width: 150px;
+    margin-left: 40px;
+}
+
+/************************************************************
+Jam*/
+#track-jam-page {
+    overflow: auto;
+    background-image: url("/static/images/record-player.png");
+    background-position: center;
+    padding-top: 70px;
+    height: 100%;
+}
+
+#drum-jam-page {
+    overflow: auto;
+    background-image: url("/static/images/record-player.png");
+    background-position: center;
+    padding: 70px 0 700px 0;
+    height: 100%;
+}
+
+
+#spotify-login {
+    margin: 170px;
+    color: rgb(133, 241, 133);
+    background-image: linear-gradient(to left, rgba(6, 62, 9, 0.769), rgba(12, 72, 23, 0.668));
+    text-decoration-line: underline;
+}
+
+
+
+#recommended-tracks {
+    background-image: linear-gradient(to right, rgba(62, 6, 6, 0.769), rgba(0, 0, 0, 0));
+    margin: 60px 0 15px 0;
+    padding: 10px 0 10px 60px;
+    font-size: 25px;
+    color: white;
+
+    width: 900px;
+}
+
+#jam-card {
+    background-image: linear-gradient(rgba(54, 33, 33, 0.769), rgb(0, 0, 0));
+}
+
+.music-player {
+    display: block;
+    float: left;
+    padding-left: 30px;
+    margin-bottom: 50px;
+}
+
+.go-back {
+    display: block;
+    margin: 7px 0 0 20px;
+    padding: 10px 10px 10px 10px;
+    width: 300px;
+    font-size: 20px;
+    background: rgb(56, 56, 56);
+    border-radius: 15px;
+}
+
+.go-back:hover {
+    background-color: rgb(137, 137, 137);
+}
+
+#jam-container {
+    display: block;
+    float: left;
+}
+
+#jam-cue {
+    text-align: center;
+    margin-bottom: 10px;
+    color: white;
+}
+
+#piano-jam {
+    display: block;
+    float: left;
+    margin-left: 30px;
+    padding: 40px 40px 60px 40px;
+    border-radius: 15px;
+    background-color: rgba(62, 32, 32, 0.792);
+}
+
+.jam-key.white.active {
+    border-top: 1px solid #777;
+    border-left: 1px solid #999;
+    border-bottom: 1px solid #999;
+
+    background: linear-gradient(to right, rgba(239, 79, 79, 0.772) 0%, rgba(193, 34, 34, 0.477) 100%)
+}
+
+.jam-key.black.active {
+
+    box-shadow: -1px -1px 2px rgba(255, 255, 255, 0.2) inset, 0 -2px 2px 3px rgba(0, 0, 0, 0.6) inset, 0 1px 2px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(to right, rgba(214, 38, 38, 0.854) 0%, rgba(193, 34, 34, 0.477) 100%)
+}
+
+
+#jam-view-keyboard {
+    display: block;
+    float: left;
+    padding-top: 0;
+    margin-top: 0px;
+    margin-left: 30px;
+    margin-right: 0;
+
+}
+
+#jam-keyboard {
+    display: block;
+    float: left;
+    width: 600px;
+    height: 300px;
+    margin: 0 0 0 30px;
+    padding: 0px;
+
+}
+
+#jam-keyboard img {
+
+    width: 550px;
+
+
+}
+
+#card-container {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+
+
+
+/************************************************************
+Seach Tracks*/
+
+.search-tracks-page {
+
+    background-image: url("/static/images/record-player.png");
+    background-position: 30% 30%;
+    background-position: cover;
+    height: 100%;
+
+}
+
+.page-intro .sign-up-prompt {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    padding: 10px;
+    font-size: 18px;
+}
+
+
+.search-tracks-page h1 {
+    display: inline-block;
+    padding: 30px 0 10px 30px;
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+.search-tracks-page h2 {
+    margin: 60px 0 15px 0;
+    padding: 10px 0 10px 60px;
+    font-size: 25px;
+    color: white;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.769), rgba(0, 0, 0, 0));
+    width: 900px;
+}
+
+.search-songs {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.769), rgba(0, 0, 0, 0));
+    width: 900px;
+    padding: 0 20px 20px 20px;
+
+    color: white;
+    font-size: 20px;
+    line-height: 60px;
+
+}
+
+
+.by-name {
+    display: block;
+    margin-left: 30px;
+}
+
+.by-name input {
+    background-color: rgb(11, 57, 26);
+    color: white;
+    width: 200px;
+    height: 28px;
+    font-size: 15px;
+}
+
+
+.by-genre {
+    width: 500px;
+    display: block;
+    float: left;
+    margin-left: 30px;
+}
+
+#genre {
+    background-color: rgb(11, 57, 26);
+    color: rgb(218, 158, 90);
+    width: 200px;
+    height: 30px;
+    font-size: 20px;
+}
+
+option {
+    background-color: rgb(11, 57, 26);
+    height: 30px;
+}
+
+#drums {
+    display: block;
+    margin: 7px 0 0 20px;
+    padding: 10px 10px 10px 10px;
+    width: 200px;
+    font-size: 20px;
+    background: rgb(161, 44, 44);
+
+}
+
+#drums:hover {
+    background-color: rgb(202, 148, 82);
+    ;
+}
+
+
+#drums a {
+    text-decoration: none;
+    color: white;
+    z-index: 3;
+}
+
+
+
+form button,
+.search button {
+    background: rgb(202, 148, 82);
+    margin-right: 17px;
+    display: inline-block;
+    position: relative;
+    padding: 5px 10px 5px 10px;
+    width: 70px;
+    overflow: hidden;
+    transition: all 0.2s linear 0s;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+}
+
+form button:before,
+.search button:before {
+    content: "\f178";
+    color: white;
+    font-family: FontAwesome;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 30px;
+    transition: all 0.2s linear 0s;
+}
+
+
+form button:hover,
+.search button:hover {
+    text-indent: -9999px;
+}
+
+form button:hover:before,
+.search button:hover:before {
+    top: 0;
+    text-indent: 0;
+}
+
+
+.card-container,
+.melody-card-container {
+    overflow-y: scroll;
+    height: 600px;
+}
+
+::-webkit-scrollbar {
+    background: black;
+    border-radius: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: gainsboro;
+    border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.card {
+    margin: 20px;
+    padding: 20px;
+    width: 400px;
+    height: 450px;
+
+    max-height: 450px;
+    border-radius: 45px;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+
+
+    justify-content: space-between;
+    float: left;
+    background-image: linear-gradient(rgba(33, 54, 33, 0.769), rgb(0, 0, 0));
+    font-size: 20px;
+    position: relative;
+}
+
+.track-name,
+.artist-name {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis " [..]";
+    max-height: 25px;
+}
+
+.card:hover {
+    background-image: linear-gradient(rgba(185, 185, 185, 0.769), rgb(0, 0, 0));
+
+
+}
+
+
+.card img {
+    width: 400px;
+    height: 400px;
+    text-align: center;
+    border-radius: 10px;
+    border-radius: 45px;
+}
+
+
+.card a {
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.fa {
+    display: block;
+    float: left;
+    background-color: rgb(0, 0, 0);
+    border-radius: 70%;
+    width: 40px;
+    border: none;
+    position: absolute;
+    margin: 15px;
+}
+
+
+.jam.fa {
+    margin: 20px 20px 0px 40px;
+    padding-left: 2px;
+    padding-right: 11px;
+    width: 26px;
+}
+
+
+
+/************************************************************
+melody recording*/
+
+
+
+#recording-page {
+    background-image: url("/static/images/flower-bkg.jpeg");
+    background-size: cover;
+}
+
+.recording-page-container {
+    background-image: linear-gradient(rgba(85, 26, 103, 0.769), rgba(165, 116, 155, 0));
+
+    width: 650px;
+    height: 100%;
+    margin-left: calc((100vw /2) - (325px));
+    margin-top: 0px;
+    text-align: center;
+
+
+}
+
+.recording-header {
+    text-align: center;
+    padding-top: 80px;
+    font-size: 50px;
+    font-family: Palatino, URW Palladio L, serif;
+    font-family: 'Merienda';
+    letter-spacing: .5rem;
+    background-image: linear-gradient(rgba(64, 17, 89, 0.776), rgba(85, 26, 103, 0));
+    padding-bottom: 70px;
+    color: rgb(235, 218, 208);
+    filter: brightness(80%);
+
+}
+
+
+
+.recording-sign-up-prompt {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    font-size: 20px;
+    color: rgb(235, 218, 208);
+    background-color: rgb(123, 88, 56);
+
+
+
+}
+
+.recording-button-container {
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 100px;
+    margin-right: 10px;
+    width: 650px;
+    z-index: 3;
+
+
+}
+
+.recording-buttons {
+    background: none;
+    border: none;
+    margin-left: 36px;
+    float: left;
+
+
+}
+
+#record img,
+#stop-recording img,
+#play-recording img,
+#clear-recording img,
+#save-recording img {
+    width: 75px;
+    filter: invert(10%);
+
+}
+
+.recording-buttons img:hover {
+
+    opacity: 0.8;
+}
+
+
+/************************************************************
+Navbar*/
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(46, 0, 95, 0.971);
+    background-image: url("/static/images/banner-bkg.jpeg");
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    z-index: 3;
+    border-bottom: 2px solid rgb(0, 0, 0);
+
+}
+
+.nav {
+    float: left;
+}
+
+.nav a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 25px 25px;
+    text-decoration: none;
+
+}
+
+
+.nav:last-child {
+    float: right
+}
+
+.nav:nth-last-child(2) {
+    float: right;
+    padding-right: 15px;
+}
+
+.nav a:hover {
+    color: rgb(142, 140, 140);
+    cursor: pointer;
+}
+
+#website-icon a {
+    display: block;
+    color: rgb(9, 8, 8);
+
+    text-align: center;
+    padding: 12px 40px;
+    text-decoration: none;
+    float: left;
+    font-size: 30px;
+    background-image: url("/static/images/blank-sheet-bkg.jpg");
+    z-index: 4;
+    background-size: cover;
+    filter: brightness(80%);
+    filter: saturate(1);
+    font-weight: bold;
+    border: 2px solid rgb(0, 0, 0);
+    font-family: 'Merienda';
+
+}
+
+/************************************************************
+keybaord instrument*/
+
+
+
+.keyboard-div {
+    width: 100%;
+    margin-top: 70px;
+    padding-bottom: 100px;
+    position: relative
+}
+
+#keyboard img {
+    border-radius: 15px;
+}
+
+#keyboard {
+    width: 555px;
+    height: 100%;
+    filter: brightness(80%);
+    border-radius: 15px;
+
+}
+
+.view-keyboard-div {
+    padding-top: 20px;
+    position: relative;
+    float: right;
+    margin-right: 100px;
+
+}
+
+#view-keyboard {
+    width: 70px;
+    filter: brightness(90%);
+}
+
+#view-keyboard:hover {
+    cursor: pointer;
+    filter: brightness(100%)
+}
+
+
+
+#piano {
+
+    width: 32em;
+    height: 14em;
+    position: relative;
+    padding-left: 90px;
+    padding-top: 25px;
+    text-align: center;
+
+}
+
+.key,
+.jam-key {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    float: left;
+    bottom: 0;
+    text-align: center
+}
+
+.key.white,
+.jam-key.white {
+    height: 14em;
+    width: 4em;
+    z-index: 1;
+    border-left: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+    border-radius: 0 0 5px 5px;
+    box-shadow: -1px 0 0 rgba(255, 255, 255, 0.8) inset, 0 0 5px #ccc inset, 0 0 3px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to bottom, #eee 0%, #fff 100%);
+
+
+}
+
+.key.white.active {
+    border-top: 1px solid #777;
+    border-left: 1px solid #999;
+    border-bottom: 1px solid #999;
+
+    background: linear-gradient(to right, rgba(220, 152, 232, 0.854) 0%, rgba(193, 34, 34, 0.477) 100%)
+}
+
+.key.black,
+.jam-key.black {
+    height: 8em;
+    width: 2em;
+    margin: 0 0 0 -1em;
+    z-index: 2;
+    border: 1px solid #000;
+    border-radius: 0 0 3px 3px;
+    box-shadow: -1px -1px 2px rgba(255, 255, 255, 0.2) inset, 0 -5px 2px 3px rgba(0, 0, 0, 0.6) inset, 0 2px 4px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(45deg, #222 0%, #555 100%);
+    color: white;
+
+}
+
+.key.black.active {
+    box-shadow: -1px -1px 2px rgba(255, 255, 255, 0.2) inset, 0 -2px 2px 3px rgba(0, 0, 0, 0.6) inset, 0 1px 2px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(to right, rgba(220, 152, 232, 0.854) 0%, rgba(193, 34, 34, 0.477) 100%)
+}
+
+
+
+
+#b,
+#g,
+#a,
+#d,
+#e {
+    margin: 0 0 0 -1em
+}
+
+#c {
+    margin: 0 0 0 .1em
+}
+
+
+
+
+ul #piano:first-child {
+    border-radius: 5px 0 5px 5px
+}
+
+ul #piano:last-child {
+    border-radius: 0 5px 5px 5px
+}
+
+.key:hover {
+
+    cursor: pointer;
+}

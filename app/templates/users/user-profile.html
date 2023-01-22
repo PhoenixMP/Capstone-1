@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% block content %}
+<div id="user-profile-page">
+
+
+    <div class="user-profile">
+        <h1> {{g.user.username}}'s Profile <a href="/edit-profile"><button class="edit-profile">Edit
+                    Profile</button></a></h1>
+
+    </div>
+
+
+
+
+    <div style="display: flex">
+        <div style="flex:1; margin-right:20px">
+            <h2>Your Favorite Tracks</h2>
+            <div class="card-container">
+
+                {% for track in tracks %}
+
+                <div class="card favorites">
+
+                    <i id="{{track.spotify_track_id}}" class="user-page fa fa-heart"
+                        style="font-size:36px;color:red"></i>
+
+                    <a href="/jam/{{track.spotify_track_id}}"
+                        alt="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcnVvH2T5J45c9Bp3zm4R7ZwLmBBwFCTbo3w&usqp=CAU"><img
+                            src={{track.track_photo}}>
+                        <p class="track-name">
+                            {{track.track_name}}
+                        </p>
+                        <p class="track-artist">
+                            by {{track.artist_name}}
+                        </p>
+                    </a>
+                </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+
+        <div style="flex:1">
+            <h2 id="melody-header">Your Melodies</h2>
+            <div class='melody-card-container'>
+                {% for melody in melodies %}
+
+                <div class="melody-card" style="border-style: solid">
+
+                    <div class="melody-info-container">
+
+                        <div class="melody-name-label">
+
+                            Melody Name:
+                            <p class="melody-name">
+                                {{melody.name}}
+                            </p>
+                        </div>
+                        <p class="melody-date">Recorded: {{melody.timestamp}}</p>
+
+
+
+                        <form class='melody-visibility-form' action="/edit-melody/{{melody.id}}" method="POST">
+                            {% if melody.visibility == True%}
+
+                            <label class="checkbox-container" for="melody-visibility">Melody Visible?
+                                <input type="checkbox" onChange="this.form.submit()" checked="true"
+                                    id="melody-visibility" name="melody-visibility" value="True">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <p class="melody-check-help"><i> (Uncheck to make
+                                    private)</p></i>
+                            </p>
+                            {% else %}
+                            <label class="checkbox-container" for="melody-visibility">Melody Visible?
+                                <input type="checkbox" onChange="this.form.submit()" id="melody-visibility"
+                                    name="melody-visibility" value="True">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <p class="melody-check-help"><i> (Check to make public)</p></i>
+
+                            {% endif %}
+                        </form>
+
+                        <form class="delete-melody-form" action="/delete-melody/{{melody.id}}" method="POST">
+                            <button class="delete-melody melody-buttons" title="Delete Melody"> <img
+                                    src="/static/images/delete-button.png">
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="play-melody-container">
+
+                        <button class="play-melody melody-buttons" title="Play Melody"><img
+                                src="/static/images/play-button.png"></button>
+                        <div class="music-notes" style="display:none">{{melody.music_notes}}</div>
+                        <div class="play-melody-label">Play</div>
+
+
+                    </div>
+
+                </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/static/playback.js"></script>
+<script src="/static/favorites.js"></script>
+{% endblock %}

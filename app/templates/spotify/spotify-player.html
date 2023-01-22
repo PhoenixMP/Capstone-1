@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div id="track-jam-page">
+    {% if g.user %}
+    {% if track_id in favorites %}
+
+    <i id="{{track_id}}" class="jam fa fa-heart" style="font-size:36px;color:red"></i>
+
+    {% else %}
+
+    <i id="{{track_id}}" class="jam fa fa-heart-o" style="font-size:36px;color:red"></i>
+
+    {% endif %}
+    {% endif %}
+    <a id='spotify-login' href="https://accounts.spotify.com/en/status" target="_blank">Login to Spotify for Full
+        Song</a>
+    <div>
+
+
+        <div class="music-player">
+            <iframe id='myIframe' style="border-radius:12px" src={{embed_link}} width="352" height="352" frameBorder="0"
+                allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
+
+            <p><button class="go-back"><a href="/search-tracks">Pick A Different Track</a></button>
+            </p>
+
+
+        </div>
+        <div id="jam-container">
+            <div id="piano-jam">
+                <div id="jam-cue">(Click in browser window to jam along)</div>
+                <ul>
+                    <li id='f' class="jam-key white ">A</li>
+                    <li id='fs' class="jam-key black">W</li>
+                    <li id='g' class="jam-key white">S</li>
+                    <li id='gs' class="jam-key black">E</li>
+                    <li id='a' class="jam-key white">D</li>
+                    <li id='bb' class="jam-key black">R</li>
+                    <li id='b' class="jam-key white">F</li>
+                    <li id='c' class="jam-key white">G</li>
+                    <li id='cs' class="jam-key black">Y</li>
+                    <li id='d' class="jam-key white">H</li>
+                    <li id='eb' class="jam-key black">U</li>
+                    <li id='e' class="jam-key white">J</li>
+
+                </ul>
+            </div>
+
+            <div id='jam-view-keyboard' class='view-keyboard-div'>
+                <img title="View Keyboard Map" id="view-keyboard" src="/static/images/view-keyboard.png" alt="">
+            </div>
+            <div id="jam-keyboard" class='keyboard-div'>
+                <img id="keyboard" src="/static/images/keyboard.png">
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div id="card-container">
+
+        {% if tracks!=None %}
+        <h2 id="recommended-tracks">Recommended Tracks</h2>
+        {% for track in tracks %}
+
+        <div id="jam-card" class="card">
+            {% if g.user %}
+            {% if track['track_id'] in favorites %}
+
+            <i id="{{track['track_id']}}" class="fa fa-heart" style="font-size:36px;color:red"></i>
+
+            {% else %}
+
+            <i id="{{track['track_id']}}" class="fa fa-heart-o" style="font-size:36px;color:red"></i>
+
+            {% endif %}
+            {% endif %}
+            <a href="/jam/{{track['track_id']}}"
+                alt="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcnVvH2T5J45c9Bp3zm4R7ZwLmBBwFCTbo3w&usqp=CAU"><img
+                    src={{track['album_image']}}>
+                <p class="track-name">
+                    {{track['track_name']}}
+                </p>
+                <p class="track-artist">
+                    by {{track['artist_name']}}
+                </p>
+
+
+
+            </a>
+
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+</div>
+
+<script src="/static/jam.js"></script>
+<script src="/static/favorites.js"></script>
+
+{% endblock %}

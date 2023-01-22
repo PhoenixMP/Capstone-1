@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="login-page">
+
+    <form method="POST" id="user_form">
+        <h2>Log-in to Melodic</h2>
+        {{ form.hidden_tag() }}
+
+        {% for field in form if field.widget.input_type != 'hidden' %}
+        <p>
+            {% for error in field.errors %}
+            <span class="text-danger">{{ error }}</span>
+            {% endfor %}
+
+            {{ field }}
+        </p>
+        {% endfor %}
+
+        <button class="user-button">Log in</button>
+        <div>Don't Have an Account Yet? <p><a href="/signup">Sign-Up Here</a></p>
+        </div>
+    </form>
+
+</div>
+{% endblock %}

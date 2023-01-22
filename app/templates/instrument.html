@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div id="recording-page">
+
+
+    <div class="recording-page-container">
+        <h1 class="recording-header">Make A Melody </h1>
+        {% if not g.user%}
+        <p class="recording-sign-up-prompt">Sign-up/Log-in to save your recorded
+            melodies</p> {% endif %}
+
+
+        <div class="recording-button-container">
+
+            <button class="recording-buttons" id="record"><img src="/static/images/record-button.png"
+                    title="Start Recording"></button>
+            <button class="recording-buttons" id='stop-recording'><img src="/static/images/stop-button.png"
+                    title="Stop Recording"></button>
+            <button class="recording-buttons" id='play-recording'><img src="/static/images/play-button.png"
+                    title="Play Back Recording"></button>
+            <button class="recording-buttons" id='clear-recording'><img src="/static/images/clear-button.png"
+                    title="Clear Recording"></button>
+
+
+            <a class="recording-buttons" id='save-recording'><img src="/static/images/save-button.png"
+                    title="Save Melody"></a>
+
+
+        </div>
+
+
+
+
+
+        <div id="piano">
+            <ul>
+                <li id='f' class="key white">A</li>
+                <li id='fs' class="key black">W</li>
+                <li id='g' class="key white">S</li>
+                <li id='gs' class="key black">E</li>
+                <li id='a' class="key white">D</li>
+                <li id='bb' class="key black">R</li>
+                <li id='b' class="key white">F</li>
+                <li id='c' class="key white">G</li>
+                <li id='cs' class="key black">Y</li>
+                <li id='d' class="key white">H</li>
+                <li id='eb' class="key black">U</li>
+                <li id='e' class="key white">J</li>
+
+            </ul>
+        </div>
+
+        <div class="view-keyboard-div">
+            <img title="View Keyboard Map" id="view-keyboard" src="/static/images/view-keyboard.png" alt="">
+        </div>
+        <div class="keyboard-div">
+            <img id="keyboard" src="/static/images/keyboard.png">
+        </div>
+    </div>
+
+</div>
+<script src="/static/recording.js"></script>
+
+{% endblock %}

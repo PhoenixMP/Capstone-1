@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div id="save-melody-page">
+    <form method="POST" id="user_form">
+        {{ form.hidden_tag() }}
+        <p>
+            {% for field in form if field.widget.input_type != 'hidden' %}
+            {% for error in field.errors %}
+            <span class="text-danger">{{ error }}</span>
+            {% endfor %}
+            {{ field.label }}:
+            {{ field }}
+        </p>
+        {% endfor %}
+
+        <button>Save Melody</button>
+    </form>
+</div>
+
+{% endblock %}
