@@ -43,7 +43,7 @@ This feature is one of the first that a user is presented with when visiting the
 
 ### User Flow Diagram
 Created with Lucidchart
-![images not avaialble](/md-images/Flowcart.jpeg)
+![images not avaialble](/md-images/UserFlow.jpeg)
 ### Database Schema
 Created with GenMyModel Database Diagram Online
 ![images not avaialble](/md-images/DatabaseDiagram.jpeg)
