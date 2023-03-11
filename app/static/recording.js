@@ -15,6 +15,20 @@ let piano_fsh = new Audio('../../static/audio//piano/f-4.wav')
 let piano_g = new Audio('../../static/audio//piano/g4.wav')
 let piano_gsh = new Audio('../../static/audio//piano/g-4.wav')
 
+piano_a.volume = 0;
+piano_bb.volume = 0;
+piano_b.volume = 0;
+piano_c.volume = 0;
+piano_csh.volume = 0;
+piano_d.volume = 0;
+piano_eb.volume = 0;
+piano_e.volume = 0;
+piano_f.volume = 0;
+piano_fsh.volume = 0;
+piano_g.volume = 0;
+piano_gsh.volume = 0;
+
+
 
 //define global variables for user-interavtive page elements 
 const startRecordButton = document.getElementById('record');
@@ -71,7 +85,9 @@ let BufferSong1 =
     { 'noteName': 'piano_csh.play()', 'time': 200 },
     { 'noteName': 'piano_d.play()', 'time': 225 },
     { 'noteName': 'piano_e.play()', 'time': 250 },
-    { 'noteName': 'piano_eb.play()', 'time': 275 }]
+    { 'noteName': 'piano_eb.play()', 'time': 275 },
+    { 'noteName': 'returnAudio()', 'time': 2500 }
+    ]
 
 
 //functions for animating/playing the audio for each piano key after clicked by a user, or when called from a music-note object
@@ -215,6 +231,22 @@ function stopAllAudio() {
     piano_b.pause()
 }
 
+//Function to return the volume of all audio elements
+function returnAudio() {
+    piano_a.volume = 1;
+    piano_bb.volume = 1;
+    piano_b.volume = 1;
+    piano_c.volume = 1;
+    piano_csh.volume = 1;
+    piano_d.volume = 1;
+    piano_eb.volume = 1;
+    piano_e.volume = 1;
+    piano_f.volume = 1;
+    piano_fsh.volume = 1;
+    piano_g.volume = 1;
+    piano_gsh.volume = 1;
+}
+
 
 //Function to push a "music-note" object to the "song" array. "music-note" objects consist of two key-object pairs - 
 //The name of the function for playing the corresponding music note audio, and one for a time value to be used in a setTimeout.
@@ -247,7 +279,10 @@ function playBuffer1() {
     for (let note in BufferSong1) {
         setTimeout(BufferSong1[note].noteName, BufferSong1[note].time);
     }
+    enableClickEvents();
 }
+
+
 
 
 
@@ -361,8 +396,6 @@ saveRecordingButton.addEventListener('click', () => {
         })
     }).then(function (response) {
         if (response.status === 200) {
-
-
             let href = window.location.href
             href = href.replace("record", "save-melody")
             window.location.href = href
@@ -376,91 +409,93 @@ saveRecordingButton.addEventListener('click', () => {
 
 //Click event listeners added to all piano key audio elements. When a key is pressed, the function for playing the note audio is called. 
 //If recording is underway, any piano key pressed will be added to the song array.
-bKey.addEventListener('click', (evt) => {
-    playPiano_b()
-    if (recording == true) {
-        recordNote(playPiano_b)
-    }
-})
+function enableClickEvents() {
+    bKey.addEventListener('click', (evt) => {
+        playPiano_b()
+        if (recording == true) {
+            recordNote(playPiano_b)
+        }
+    })
 
-bbKey.addEventListener('click', (evt) => {
-    playPiano_bb()
-    if (recording == true) {
-        recordNote(playPiano_bb)
-    }
-})
+    bbKey.addEventListener('click', (evt) => {
+        playPiano_bb()
+        if (recording == true) {
+            recordNote(playPiano_bb)
+        }
+    })
 
-aKey.addEventListener('click', (evt) => {
-    playPiano_a()
-    if (recording == true) {
-        recordNote(playPiano_a)
-    }
-})
+    aKey.addEventListener('click', (evt) => {
+        playPiano_a()
+        if (recording == true) {
+            recordNote(playPiano_a)
+        }
+    })
 
-gsKey.addEventListener('click', (evt) => {
-    playPiano_gsh()
-    if (recording == true) {
-        recordNote(playPiano_gsh)
-    }
-})
+    gsKey.addEventListener('click', (evt) => {
+        playPiano_gsh()
+        if (recording == true) {
+            recordNote(playPiano_gsh)
+        }
+    })
 
-gKey.addEventListener('click', (evt) => {
-    playPiano_g()
-    if (recording == true) {
-        recordNote(playPiano_g)
-    }
-})
+    gKey.addEventListener('click', (evt) => {
+        playPiano_g()
+        if (recording == true) {
+            recordNote(playPiano_g)
+        }
+    })
 
-fsKey.addEventListener('click', (evt) => {
-    playPiano_fsh()
-    if (recording == true) {
-        recordNote(playPiano_fsh)
-    }
-})
+    fsKey.addEventListener('click', (evt) => {
+        playPiano_fsh()
+        if (recording == true) {
+            recordNote(playPiano_fsh)
+        }
+    })
 
-fKey.addEventListener('click', (evt) => {
-    playPiano_f()
-    if (recording == true) {
-        recordNote(playPiano_f)
-    }
-})
+    fKey.addEventListener('click', (evt) => {
+        playPiano_f()
+        if (recording == true) {
+            recordNote(playPiano_f)
+        }
+    })
 
-eKey.addEventListener('click', (evt) => {
-    playPiano_e()
-    if (recording == true) {
-        recordNote(playPiano_e)
-    }
-})
+    eKey.addEventListener('click', (evt) => {
+        playPiano_e()
+        if (recording == true) {
+            recordNote(playPiano_e)
+        }
+    })
 
-ebKey.addEventListener('click', (evt) => {
-    playPiano_eb()
-    if (recording == true) {
-        recordNote(playPiano_eb)
-    }
-})
+    ebKey.addEventListener('click', (evt) => {
+        playPiano_eb()
+        if (recording == true) {
+            recordNote(playPiano_eb)
+        }
+    })
 
-dKey.addEventListener('click', (evt) => {
-    playPiano_d()
-    if (recording == true) {
-        recordNote(playPiano_d)
-    }
-})
+    dKey.addEventListener('click', (evt) => {
+        playPiano_d()
+        if (recording == true) {
+            recordNote(playPiano_d)
+        }
+    })
 
-csKey.addEventListener('click', (evt) => {
-    playPiano_csh()
-    if (recording == true) {
-        recordNote(playPiano_csh)
-    }
-})
+    csKey.addEventListener('click', (evt) => {
+        playPiano_csh()
+        if (recording == true) {
+            recordNote(playPiano_csh)
+        }
+    })
 
-cKey.addEventListener('click', (evt) => {
+    cKey.addEventListener('click', (evt) => {
 
-    playPiano_c()
-    if (recording == true) {
-        recordNote(playPiano_c)
-    }
+        playPiano_c()
+        if (recording == true) {
+            recordNote(playPiano_c)
+        }
 
-})
+    })
+}
 
 
 

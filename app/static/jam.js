@@ -15,6 +15,19 @@ let piano_fsh = new Audio('../../static/audio//piano/f-4.wav')
 let piano_g = new Audio('../../static/audio//piano/g4.wav')
 let piano_gsh = new Audio('../../static/audio//piano/g-4.wav')
 
+piano_a.volume = 0;
+piano_bb.volume = 0;
+piano_b.volume = 0;
+piano_c.volume = 0;
+piano_csh.volume = 0;
+piano_d.volume = 0;
+piano_eb.volume = 0;
+piano_e.volume = 0;
+piano_f.volume = 0;
+piano_fsh.volume = 0;
+piano_g.volume = 0;
+piano_gsh.volume = 0;
+
 
 //define global variables for user-interavtive page elements 
 const keyboardHelp = document.getElementById('keyboard');
@@ -49,7 +62,8 @@ let BufferSong1 =
     { 'noteName': 'piano_csh.play()', 'time': 200 },
     { 'noteName': 'piano_d.play()', 'time': 225 },
     { 'noteName': 'piano_e.play()', 'time': 250 },
-    { 'noteName': 'piano_eb.play()', 'time': 275 }]
+    { 'noteName': 'piano_eb.play()', 'time': 275 },
+    { 'noteName': 'returnAudio()', 'time': 2500 }]
 
 
 
@@ -183,12 +197,30 @@ function playPiano_gsh() {
     piano_gsh.play()
 }
 
+//Function to return the volume of all audio elements
+function returnAudio() {
+    piano_a.volume = 1;
+    piano_bb.volume = 1;
+    piano_b.volume = 1;
+    piano_c.volume = 1;
+    piano_csh.volume = 1;
+    piano_d.volume = 1;
+    piano_eb.volume = 1;
+    piano_e.volume = 1;
+    piano_f.volume = 1;
+    piano_fsh.volume = 1;
+    piano_g.volume = 1;
+    piano_gsh.volume = 1;
+}
+
+
 //Function that is similar to "playSong", but instead it will only produce timeouts for the "buffer" song array.
 //This function results in the browser playing the audio of a chromatic scale
 function playBuffer1() {
     for (let note in BufferSong1) {
         setTimeout(BufferSong1[note].noteName, BufferSong1[note].time);
     }
+    enableClickEvents();
 }
 
 //Click event listener set on the view-keyboard icon. Toggles the display for the an image that illustrates which keyboard keys are associated with which piano key.
@@ -203,54 +235,55 @@ viewKeyboardIcon.addEventListener('click', () => {
 
 
 //Click event listeners added to all piano key audio elements. When a key is pressed, the function for playing the note audio is called. 
-bKey.addEventListener('click', (evt) => {
-    playPiano_b()
-})
+function enableClickEvents() {
+    bKey.addEventListener('click', (evt) => {
+        playPiano_b()
+    })
 
-bbKey.addEventListener('click', (evt) => {
-    playPiano_bb()
-})
+    bbKey.addEventListener('click', (evt) => {
+        playPiano_bb()
+    })
 
-aKey.addEventListener('click', (evt) => {
-    playPiano_a()
-})
+    aKey.addEventListener('click', (evt) => {
+        playPiano_a()
+    })
 
-gsKey.addEventListener('click', (evt) => {
-    playPiano_gsh()
-})
+    gsKey.addEventListener('click', (evt) => {
+        playPiano_gsh()
+    })
 
-gKey.addEventListener('click', (evt) => {
-    playPiano_g()
-})
+    gKey.addEventListener('click', (evt) => {
+        playPiano_g()
+    })
 
-fsKey.addEventListener('click', (evt) => {
-    playPiano_fsh()
-})
+    fsKey.addEventListener('click', (evt) => {
+        playPiano_fsh()
+    })
 
-fKey.addEventListener('click', (evt) => {
-    playPiano_f()
-})
+    fKey.addEventListener('click', (evt) => {
+        playPiano_f()
+    })
 
-eKey.addEventListener('click', (evt) => {
-    playPiano_e()
-})
+    eKey.addEventListener('click', (evt) => {
+        playPiano_e()
+    })
 
-ebKey.addEventListener('click', (evt) => {
-    playPiano_eb()
-})
+    ebKey.addEventListener('click', (evt) => {
+        playPiano_eb()
+    })
 
-dKey.addEventListener('click', (evt) => {
-    playPiano_d()
-})
+    dKey.addEventListener('click', (evt) => {
+        playPiano_d()
+    })
 
-csKey.addEventListener('click', (evt) => {
-    playPiano_csh()
-})
+    csKey.addEventListener('click', (evt) => {
+        playPiano_csh()
+    })
 
-cKey.addEventListener('click', (evt) => {
-    playPiano_c()
-})
-
+    cKey.addEventListener('click', (evt) => {
+        playPiano_c()
+    })
+}
 
 
 //Keydown event listeners for each key that corresponds to a piano note element. If pressed, the "click" on that piano piano note element is simulated.
@@ -267,6 +300,7 @@ window.addEventListener('keydown', function (e) {
         buffer = false
 
     } else {
+
 
 
         // keyboard stroke "a", piano note F

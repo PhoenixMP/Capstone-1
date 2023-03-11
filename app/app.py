@@ -94,6 +94,10 @@ def signup():
     If the there already is a user with that username: flash message
     and re-present form.
     """
+    if g.user:
+        flash("Invalid Page.", "danger")
+        return redirect("/")
+
     if CURR_USER_KEY in session:
         del session[CURR_USER_KEY]
     form = UserAddForm()
@@ -121,6 +125,10 @@ def signup():
 @app.route('/login', methods=["GET", "POST"])
 def login():
     """Handle user login."""
+
+    if g.user:
+        flash("Invalid Page.", "danger")
+        return redirect("/")
 
     form = LoginForm()
 
@@ -433,11 +441,12 @@ def user_profle(user_id):
     if g.user.id != user_id:
         flash("Access unauthorized.", "danger")
         return redirect("/")
+
     session['last_url'] = f'/profile/{user_id}'
 
     favorite_tracks = [Favorited_Track.query.get(
-        track.track_id) for track in User_Favorited_Track.query.filter(User_Favorited_Track.user_id == user_id)]
-
+        track.track_id) for track in User_Favorited_Track.query.filter(User_Favorited_Track.user_id == g.user.id)]
+    session['last_url'] = f'/profile/{user_id}'
     favorite_tracks.reverse()
 
     melodies = list(Melody.query.filter(

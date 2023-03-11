@@ -15,6 +15,21 @@ let piano_fsh = new Audio('../../static/audio//piano/f-4.wav')
 let piano_g = new Audio('../../static/audio//piano/g4.wav')
 let piano_gsh = new Audio('../../static/audio//piano/g-4.wav')
 
+piano_a.volume = 0;
+piano_bb.volume = 0;
+piano_b.volume = 0;
+piano_c.volume = 0;
+piano_csh.volume = 0;
+piano_d.volume = 0;
+piano_eb.volume = 0;
+piano_e.volume = 0;
+piano_f.volume = 0;
+piano_fsh.volume = 0;
+piano_g.volume = 0;
+piano_gsh.volume = 0;
+
+
+
 //Define two identical song arrays that are comprised of music-note objects.This array will be read by browser upon first piano key click. It results in a chromatic scale.
 let BufferSong1 =
     [{ 'noteName': 'piano_f.play()', 'time': 0 },
@@ -28,7 +43,7 @@ let BufferSong1 =
     { 'noteName': 'piano_csh.play()', 'time': 200 },
     { 'noteName': 'piano_d.play()', 'time': 225 },
     { 'noteName': 'piano_e.play()', 'time': 250 },
-    { 'noteName': 'piano_eb.play()', 'time': 275 }, { 'noteName': 'stopAllAudio', 'time': 300 }]
+    { 'noteName': 'piano_eb.play()', 'time': 275 }, { 'noteName': 'stopAllAudio', 'time': 275 }]
 
 let BufferSong2 = [{ 'noteName': 'piano_f.play()', 'time': 0 },
 { 'noteName': 'piano_fsh.play()', 'time': 25 },
@@ -41,7 +56,7 @@ let BufferSong2 = [{ 'noteName': 'piano_f.play()', 'time': 0 },
 { 'noteName': 'piano_csh.play()', 'time': 200 },
 { 'noteName': 'piano_d.play()', 'time': 225 },
 { 'noteName': 'piano_e.play()', 'time': 250 },
-{ 'noteName': 'piano_eb.play()', 'time': 275 }, { 'noteName': 'stopAllAudio', 'time': 300 }]
+{ 'noteName': 'piano_eb.play()', 'time': 275 }, { 'noteName': 'stopAllAudio', 'time': 275 }]
 
 
 
@@ -150,6 +165,21 @@ function stopAllAudio() {
     piano_b.pause()
 }
 
+//Function to return the volume of all audio elements
+function returnAudio() {
+    piano_a.volume = 1;
+    piano_bb.volume = 1;
+    piano_b.volume = 1;
+    piano_c.volume = 1;
+    piano_csh.volume = 1;
+    piano_d.volume = 1;
+    piano_eb.volume = 1;
+    piano_e.volume = 1;
+    piano_f.volume = 1;
+    piano_fsh.volume = 1;
+    piano_g.volume = 1;
+    piano_gsh.volume = 1;
+}
 
 //Function to play the audio that results from a for-loop over the song array. 
 //A setTimeout is made for each index/object in the song array, where the object noteName value is the timeout function and the object time value is the timeout time.
@@ -213,7 +243,8 @@ for (let i = 0; i < playMelodyButton.length; i++) {
 
 
         else {
-
+            stopAllAudio();
+            returnAudio();
             if (audioIsPlaying === true) {
                 e.currentTarget.firstChild.src = "/static/images/play-button.png"
                 for (const x of timeouts) {

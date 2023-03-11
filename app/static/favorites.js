@@ -3,7 +3,6 @@
 //Clicked "hearts" will toggle between filled-in red hearts, and empty hearts. A heart-click results in post request sent to python with the corresponding spotify-track-id, 
 //where python will update the favorited status of the track accordingly.
 
-
 let favoriteButton = document.getElementsByClassName("fa");
 
 
