@@ -1,6 +1,6 @@
 
 # Melodic 
-Deployed on Heroku: https://melodic-play.onrender.com/
+Deployed on Render: https://melodic-play.onrender.com/
 
 
 ### About Melodic
