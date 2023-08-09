@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-#Melodic
-## Melodic 
-Deployed on Heroku: https://melodic-play.onrender.com/
-=======
 
 # Melodic 
-Deployed on Heroku: https://melodic.herokuapp.com/
->>>>>>> 097e2e078f31f67fbe88848605859cec80af37ac
+Deployed on Heroku: https://melodic-play.onrender.com/
+
 
 ### About Melodic
 Melodic is a melody-making website for users to play a virtual piano with their computer's keyboard. Users can jam along using their piano-keyboard with any searched Spotify music track of their choice. They can also use their piano-keyboard to record and save their created melodies, with the option to share these melodies for other users to listen to. 
